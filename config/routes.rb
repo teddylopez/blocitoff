@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :todo_lists
   end
 
+  get 'todo_lists/new' => 'todo_lists#new'
   root to: "users#show"
 end
