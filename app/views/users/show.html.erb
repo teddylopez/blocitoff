@@ -3,6 +3,16 @@
     <div class="media">
       <br />
       <p>This is the user show view</p>
+      <% if !@user.todo_lists.any? %>
+        <p><%= current_user.email %> doesn't have any lists!</p>
+      <% else %>
+      <p>Todo-Lists for <%= current_user.email %>:</p>
+        <% current_user.todo_lists.each do |list| %>
+          <% link_to list.title, list %>
+        <% end %>
+      <% end %>
+
+      <%= button_to "New list", new_user_todo_list_path(@user) %>
 
     </div>
   </div>

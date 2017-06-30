@@ -10,6 +10,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
+    @todo_list = TodoList.find(params[:id])
   end
 
   # GET /todo_lists/new
@@ -19,6 +20,7 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/1/edit
   def edit
+    @todo_list = TodoList.find(params[:id])
   end
 
   # POST /todo_lists
