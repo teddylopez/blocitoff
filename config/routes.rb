@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  resources :todo_lists
-  resources :users, only: [:new, :create, :show]
-  get 'welcome/index'
-  get 'about' => 'welcome#about'
-
   devise_for :users
 
-  root to: "todo_lists#index"
+  resources :users, only: [:new, :create, :show] do
+    resources :todo_lists
+  end
+
+  root to: "users#show"
 end
