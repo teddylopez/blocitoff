@@ -44,6 +44,6 @@ class TodoListsControllerTest < ActionController::TestCase
       delete :destroy, id: @todo_list
     end
 
-    assert_redirected_to todo_lists_path
+    assert_redirected_to user_todo_lists_path
   end
 end
