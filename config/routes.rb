@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users do
     resources :todo_lists
   end
 
