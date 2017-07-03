@@ -1,7 +1,5 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
-  before_filter :load_user
-
+  before_action :set_todo_list, except: :new
   # GET /todo_lists
   # GET /todo_lists.json
   def index
@@ -11,27 +9,27 @@ class TodoListsController < ApplicationController
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
-    @todo_list = @user.todo_list.find(params[:id])
+    @todo_list = TodoList.find(params[:id])
   end
 
   # GET /todo_lists/new
   def new
-    @todo_list = @user.todo_list.new
+    @todo_list = TodoList.new
   end
 
   # GET /todo_lists/1/edit
   def edit
-    @todo_list = @user.todo_list.find(params[:id])
+    @todo_list = TodoList.find(params[:id])
   end
 
   # POST /todo_lists
   # POST /todo_lists.json
   def create
-    @todo_list = @user.todo_list.new(todo_list_params)
+    @todo_list = TodoList.new(todo_list_params)
 
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to [@user, @todo_list], notice: 'Todo list was successfully created.' }
+        format.html { redirect_to user_todo_list_path(current_user, @todo_list), notice: 'Todo list was successfully created.' }
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new }
@@ -45,7 +43,7 @@ class TodoListsController < ApplicationController
   def update
     respond_to do |format|
       if @todo_list.update(todo_list_params)
-        format.html { redirect_to [@user, @todo_list], notice: 'Todo list was successfully updated.' }
+        format.html { redirect_to @todo_list, notice: 'Todo list was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo_list }
       else
         format.html { render :edit }
@@ -57,10 +55,9 @@ class TodoListsController < ApplicationController
   # DELETE /todo_lists/1
   # DELETE /todo_lists/1.json
   def destroy
-    @todo_list = @user.todo_list.find(params[:id])
     @todo_list.destroy
     respond_to do |format|
-      format.html { redirect_to user_todo_lists_url(@user), notice: 'Todo list was successfully destroyed.' }
+      format.html { redirect_to todo_lists_url, notice: 'Todo list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,10 +70,6 @@ class TodoListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description)
-    end
-
-    def load_user
-      @user = User.find(params[:user_id])
+      params.permit(:title, :description)
     end
 end
