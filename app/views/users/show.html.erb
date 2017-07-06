@@ -3,7 +3,7 @@
     <div class="media">
       <br />
       <p>This is the user show view</p>
-      <% if !@user.todo_lists.any? %>
+      <% if !current_user.todo_lists.any? %>
         <p><%= current_user.email %> doesn't have any lists!</p>
       <% else %>
       <p>Todo-Lists for <%= current_user.email %>:</p>

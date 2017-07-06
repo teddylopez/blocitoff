@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, except: :new
+  before_action :set_todo_list, except: [:new, :create]
   # GET /todo_lists
   # GET /todo_lists.json
   def index
@@ -14,6 +14,7 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/new
   def new
+    @user = current_user
     @todo_list = TodoList.new
   end
 
@@ -25,11 +26,12 @@ class TodoListsController < ApplicationController
   # POST /todo_lists
   # POST /todo_lists.json
   def create
+    @user = current_user
     @todo_list = TodoList.new(todo_list_params)
 
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to user_todo_list_path(current_user, @todo_list), notice: 'Todo list was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Todo list was successfully created.' }
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new }

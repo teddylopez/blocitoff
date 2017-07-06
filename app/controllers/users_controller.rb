@@ -9,11 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.present?
-      @user = params[:id] ? User.find(params[:id]) : current_user
-    else
-      redirect_to new_user_path
-    end
+    @user = User.find(params[:id])
   end
 
 end
