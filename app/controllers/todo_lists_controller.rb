@@ -20,37 +20,37 @@ class TodoListsController < ApplicationController
 
   # GET /todo_lists/1/edit
   def edit
+    @user = current_user
     @todo_list = TodoList.find(params[:id])
   end
 
   # POST /todo_lists
   # POST /todo_lists.json
   def create
-    @user = current_user
     @todo_list = TodoList.new(todo_list_params)
+    @todo_list.user = current_user
 
-    respond_to do |format|
-      if @todo_list.save
-        format.html { redirect_to root_path, notice: 'Todo list was successfully created.' }
-        format.json { render :show, status: :created, location: @todo_list }
-      else
-        format.html { render :new }
-        format.json { render json: @todo_list.errors, status: :unprocessable_entity }
-      end
+    if @todo_list.save
+      flash[:notice] = "Post was saved."
+      redirect_to root_path
+    else
+      flash.now[:alert] = "There was an error saving the post. Please try again."
+      render :new
     end
   end
 
   # PATCH/PUT /todo_lists/1
   # PATCH/PUT /todo_lists/1.json
   def update
-    respond_to do |format|
-      if @todo_list.update(todo_list_params)
-        format.html { redirect_to @todo_list, notice: 'Todo list was successfully updated.' }
-        format.json { render :show, status: :ok, location: @todo_list }
-      else
-        format.html { render :edit }
-        format.json { render json: @todo_list.errors, status: :unprocessable_entity }
-      end
+    @todo_list = TodoList.find(params[:id])
+    @todo_list.assign_attributes(todo_list_params)
+
+    if @todo_list.save
+      flash[:notice] = "\"#{@todo_list.title}\" has been updated."
+      redirect_to @todo_list
+    else
+      flash.now[:alert] = "There was an error updating the entry. Please try again."
+      render :edit
     end
   end
 
@@ -72,6 +72,6 @@ class TodoListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_list_params
-      params.permit(:title, :description)
+      params.require(:todo_list).permit(:title, :description, :user_id)
     end
 end

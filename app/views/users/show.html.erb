@@ -2,17 +2,21 @@
   <div class="col-md-8">
     <div class="media">
       <br />
-      <p>This is the user show view</p>
+      <h1>This is the user show view</h1>
+      <%= link_to "New list", new_user_todo_list_path(@user) %>
+      <br>
+
       <% if !current_user.todo_lists.any? %>
         <p><%= current_user.email %> doesn't have any lists!</p>
       <% else %>
-      <p>Todo-Lists for <%= current_user.email %>:</p>
+        <p>Todo-Lists for <%= current_user.email %>:</p>
         <% current_user.todo_lists.each do |list| %>
-          <% link_to list.title, list %>
+          <ul>
+            <li><%= link_to list.title, user_todo_list_path(current_user, list) %></li>
+          </ul>
         <% end %>
       <% end %>
-
-      <%= link_to "New list", new_user_todo_list_path(@user) %>
+      <br>
 
     </div>
   </div>
