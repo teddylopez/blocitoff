@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show] do
-    resources :todo_lists, only: [:create, :destroy, :show, :edit, :new]
+    resources :todo_lists, only: [:create, :destroy, :show, :edit, :new] do
+      resources :items, only: :create
+    end
   end
 
   get "/users/:id/todo_lists/" => "todo_lists#new"
