@@ -9,6 +9,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists/1
   # GET /todo_lists/1.json
   def show
+    @user = current_user
     @todo_list = TodoList.find(params[:id])
   end
 

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   end
 
   get "/users/:id/todo_lists/" => "todo_lists#new"
+  get "/users/:id/todo_lists/:list_id" => "todo_lists#show"
+
   get "/users/:id/todo_lists/:list_id" => "todo_lists#edit"
   root to: "users#show"
 end
