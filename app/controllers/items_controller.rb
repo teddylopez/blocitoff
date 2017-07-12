@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
     @user = current_user
     @todo_item = @todo_list.items.create(item_params)
 
-    redirect_to user_todo_list_path(@todo_list)
+    redirect_to user_todo_list_path(@user, @todo_list)
   end
 
   private

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :todo_lists
+  has_many :todo_lists, dependent: :destroy
+  has_many :items, dependent: :destroy
 
 end

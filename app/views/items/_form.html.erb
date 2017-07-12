@@ -1,4 +1,4 @@
-<%= form_for([@user, @todo_list, @user.todo_list.items.build]) do |f| %>
+<%= form_for([@user, @todo_list, @todo_list.items.new]) do |f| %>
   <%= f.text_field :name, placeholder: "What to do?" %>
   <%= f.submit %>
 <% end %>
