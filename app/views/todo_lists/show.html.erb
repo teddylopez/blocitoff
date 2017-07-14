@@ -1,17 +1,15 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<div class="todo_list_title">
   <%= @todo_list.title %>
-</p>
+</div>
 
+<div class="todo_list_description">
 <% if @todo_list.description? %>
-<p>
-  <strong>Description:</strong>
   <%= @todo_list.description %>
-</p>
 <% end %>
+</div>
 
+<br>
 <div id="todo_items_wrapper">
   <%= render @todo_list.items %>
   <div id="form">
@@ -19,6 +17,8 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_user_todo_list_path(current_user, @todo_list) %> |
-<%= link_to 'Delete', user_todo_list_path(current_user, @todo_list), method: :delete, data: { confirm: "Are you sure?"} %> |
-<%= link_to 'Back', root_path %>
+<div class="links">
+  <%= link_to 'Edit', edit_user_todo_list_path(current_user, @todo_list) %> |
+  <%= link_to 'Delete', user_todo_list_path(current_user, @todo_list), method: :delete, data: { confirm: "Are you sure?"} %> |
+  <%= link_to 'Back', root_path %>
+</div>

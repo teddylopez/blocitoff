@@ -9,6 +9,9 @@
       <% end %>
   <% end %>
 </div>
+
+<div class="links">
 <%= link_to "New list", new_user_todo_list_path(@user) %>
+</div>
 
 <div id="footer-log-out" class="links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
