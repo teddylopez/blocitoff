@@ -43,6 +43,7 @@ class TodoListsController < ApplicationController
   # PATCH/PUT /todo_lists/1
   # PATCH/PUT /todo_lists/1.json
   def update
+    @user = current_user
     @todo_list = TodoList.find(params[:id])
     @todo_list.assign_attributes(todo_list_params)
 
@@ -58,11 +59,14 @@ class TodoListsController < ApplicationController
   # DELETE /todo_lists/1
   # DELETE /todo_lists/1.json
   def destroy
-    @todo_list.destroy
-    respond_to do |format|
-      format.html { redirect_to todo_lists_url, notice: 'Todo list was successfully destroyed.' }
-      format.json { head :no_content }
+    @user = current_user
+    @todo_list = TodoList.find(params[:id])
+    if @todo_list.destroy
+      flash[:success] = "List deleted."
+    else
+      flash[:error] = "List could not be deleted."
     end
+    redirect_to root_path
   end
 
   private

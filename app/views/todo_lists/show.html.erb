@@ -5,10 +5,12 @@
   <%= @todo_list.title %>
 </p>
 
+<% if @todo_list.description? %>
 <p>
   <strong>Description:</strong>
   <%= @todo_list.description %>
 </p>
+<% end %>
 
 <div id="todo_items_wrapper">
   <%= render @todo_list.items %>
@@ -18,4 +20,5 @@
 </div>
 
 <%= link_to 'Edit', edit_user_todo_list_path(current_user, @todo_list) %> |
+<%= link_to 'Delete', user_todo_list_path(current_user, @todo_list), method: :delete, data: { confirm: "Are you sure?"} %> |
 <%= link_to 'Back', root_path %>

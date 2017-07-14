@@ -1,23 +1,14 @@
-<div class="row">
-  <div class="col-md-8">
-    <div class="media">
-      <br />
-      <h1>This is the user show view</h1>
-      <%= link_to "New list", new_user_todo_list_path(@user) %>
-      <br>
+<h1 id="app-title"> blocitoff </h1>
 
-      <% if !current_user.todo_lists.any? %>
-        <p><%= current_user.email %> doesn't have any lists!</p>
-      <% else %>
-        <p>Todo-Lists for <%= current_user.email %>:</p>
-        <% current_user.todo_lists.each do |list| %>
-          <ul>
-            <li><%= link_to list.title, user_todo_list_path(current_user, list) %></li>
-          </ul>
-        <% end %>
+<div class="index_row clearfix">
+  <% if !current_user.todo_lists.any? %>
+    <h2 class="todo_list_title"><%= current_user.email %> doesn't have any lists!</h2>
+  <% else %>
+    <% current_user.todo_lists.each do |list| %>
+      <h2 class="todo_list_title"><%= link_to list.title, user_todo_list_path(current_user, list) %></h2>
       <% end %>
-      <br>
-
-    </div>
-  </div>
+  <% end %>
 </div>
+<%= link_to "New list", new_user_todo_list_path(@user) %>
+
+<div id="footer-log-out" class="links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>

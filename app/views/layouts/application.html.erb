@@ -7,10 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <div class="pull-right user-info links">
+      <% if current_user %>
+        <p id='user'><%= current_user.email %></p>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path %>
+        <%= link_to "Sign Up", new_user_registration_path %>
+      <% end %>
+    </div>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-<%= yield %>
+  <%= yield %>
+</div>
 
 </body>
 </html>
