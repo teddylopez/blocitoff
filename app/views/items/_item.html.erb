@@ -1,20 +1,20 @@
 <div class="row clearfix">
   <% if item.completed? %>
-    <div class="complete">
-      <%= link_to "Mark as complete", complete_user_todo_list_item_path(@user, @todo_list, item.id), method: :patch %>
-    </div>
     <div class="todo_item">
       <p style="opacity: 0.4;"><strike><%= item.name %></strike></p>
+    </div>
+    <div class="complete">
+      <%= link_to "Mark as complete", complete_user_todo_list_item_path(@user, @todo_list, item.id), method: :patch %>
     </div>
     <div class="trash">
       <%= link_to "Delete item", user_todo_list_item_path(@user, @todo_list, item.id), method: :delete, data: { confirm: "Are you sure?"} %>
     </div>
   <% else %>
+  <div class="todo_item">
+    <p><%= item.name %> | <%= distance_of_time_in_words(Time.now, item.created_at + 7.days)%> left</p>
+  </div>
   <div class="complete">
     <%= link_to "Mark as complete", complete_user_todo_list_item_path(@user, @todo_list, item.id), method: :patch %>
-  </div>
-  <div class="todo_item">
-    <p><%= item.name %></p>
   </div>
   <div class="trash">
     <%= link_to "Delete item", user_todo_list_item_path(@user, @todo_list, item.id), method: :delete, data: { confirm: "Are you sure?"} %>
