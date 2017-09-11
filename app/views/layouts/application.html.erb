@@ -20,6 +20,11 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>
+
+  <script>
+    blocmetrics.report("test");
+  </script>
+  
 </div>
 
 </body>
