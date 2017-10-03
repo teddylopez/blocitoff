@@ -28,3 +28,4 @@ puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{TodoList.count} lists created"
 puts "#{Item.count} items created"
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
