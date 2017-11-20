@@ -1,6 +1,6 @@
 <div class="index_row clearfix">
   <% if !current_user.todo_lists.any? %>
-    <h2 class="todo_list_title"><%= current_user.email %> doesn't have any lists!</h2>
+    <h2 class="todo_list_title"> You don't have any lists yet!</h2>
   <% else %>
     <% current_user.todo_lists.each do |list| %>
       <h2 class="todo_list_title"><%= link_to list.title, user_todo_list_path(current_user, list) %></h2>

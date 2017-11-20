@@ -193,6 +193,46 @@ body {
 	}
 }
 
+input[type="text"], textarea {
+    width: 100%;
+    margin: .5em 2% 1em 0;
+    display: inline-block;
+    outline: none;
+    background: rgba(250, 250, 250, 0.4);
+    border: none;
+    height: 40px;
+    border-radius: 4px;
+    padding: 1em 2em;
+}
+
+input[type="password"], textarea {
+    width: 100%;
+    margin: .5em 2% 1em 0;
+    display: inline-block;
+    outline: none;
+    background: rgba(250, 250, 250, 0.4);
+    border: none;
+    height: 40px;
+    border-radius: 4px;
+    padding: 1em 2em;
+}
+
+input[type="submit"] {
+    background: white;
+    outline: none;
+    border: none;
+    height: 40px;
+    border-radius: 4px;
+    width: 25%;
+    display: inline-block;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    color: #1f7972;
+}
+
+textarea {
+	height: 200px;
+}
 .container {
 	background: $white_opaque;
   width: 65%;
