@@ -5,26 +5,34 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "custom.css.scss" %>
 </head>
 <body>
   <div class="container">
+    <% if notice %>
+      <div id="notice-wrapper">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% elsif alert %>
+      <div id="notice-wrapper">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <%end %>
+
     <div class="pull-right user-info links">
       <% if current_user %>
         <p id='user'><%= current_user.email %></p>
-      <% else %>
-        <%= link_to "Sign In", new_user_session_path %>
-        <%= link_to "Sign Up", new_user_registration_path %>
       <% end %>
     </div>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+    <div class="wrapper">
+        <%= yield %>
+    </div>
 
   <script>
     blocmetrics.report("test");
   </script>
-  
+
 </div>
 
 </body>
