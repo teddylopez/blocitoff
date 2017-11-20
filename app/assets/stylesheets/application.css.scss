@@ -20,6 +20,7 @@ body {
 	color: white;
 	font-weight: 100;
   margin-top: 5rem;
+	opacity: 0.5;
 }
 
 #app-title {
@@ -97,7 +98,7 @@ body {
 	margin: 0 0 3em 0;
 	text-align: center;
 	font-size: 0.9em;
-	color: $dark;
+	color: #FFFFFF;
 	font-weight: 100;
 }
 
@@ -114,9 +115,9 @@ body {
 	margin: 1.5em auto 0 auto;
 	text-align: center;
 	font-size: 0.8em;
-	color: white;
+	color: #FFFFFF;
 	a {
-		color: white;
+		color: #FFFFFF;
 	}
 }
 
@@ -142,7 +143,7 @@ body {
 			p {
 				margin: 0;
 				padding: 1em;
-				color: $dark;
+				color: #FFFFFF;
 				font-weight: 100;
 			}
 		}
@@ -157,7 +158,7 @@ body {
 			color: white;
 			transition: all .4s ease-in-out;
 			&:hover {
-				color: $dark;
+				color: #FFFFFF;
 			}
 		}
 	}
@@ -186,10 +187,10 @@ body {
 			transition: all .4s ease-in-out;
 			cursor: pointer;
 			&:hover {
-				background: $dark;
+				background: #FFFFFF;
 			}
 		}
-		::-webkit-input-placeholder { color: $dark; }
+		::-webkit-input-placeholder { color: #FFFFFF; }
 	}
 }
 
@@ -227,7 +228,7 @@ input[type="submit"] {
     display: inline-block;
     transition: all .4s ease-in-out;
     cursor: pointer;
-    color: #1f7972;
+    color: #0275d8;
 }
 
 textarea {
@@ -254,4 +255,11 @@ textarea {
 	.todo_list_sub_title {
 		margin-bottom: 0;
 	}
+}
+
+#todo_items_wrapper .row .todo_item p {
+    margin: 0;
+    padding: 1em;
+    color: #FFFFFF;
+    font-weight: 100;
 }
