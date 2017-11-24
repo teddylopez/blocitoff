@@ -28,8 +28,9 @@ class TodoListsController < ApplicationController
   # POST /todo_lists
   # POST /todo_lists.json
   def create
+    @user = current_user
     @todo_list = TodoList.new(todo_list_params)
-    @todo_list.user = current_user
+    @todo_list.user = @user
 
     if @todo_list.save
       flash[:notice] = "Post was saved."
@@ -49,7 +50,7 @@ class TodoListsController < ApplicationController
 
     if @todo_list.save
       flash[:notice] = "\"#{@todo_list.title}\" has been updated."
-      redirect_to @todo_list
+      redirect_to user_todo_list_path(@user, @todo_list)
     else
       flash.now[:alert] = "There was an error updating the entry. Please try again."
       render :edit

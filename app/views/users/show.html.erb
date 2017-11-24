@@ -1,12 +1,14 @@
 <div class="index_row clearfix">
   <% if !current_user.todo_lists.any? %>
-    <h2 class="todo_list_title"> You don't have any lists yet!</h2>
+    <h2 class="todo_list_title"> You don't have any lists yet</h2>
   <% else %>
     <% current_user.todo_lists.each do |list| %>
       <h2 class="todo_list_title"><%= link_to list.title, user_todo_list_path(current_user, list) %></h2>
       <% end %>
   <% end %>
 </div>
-<%= link_to "New list", new_user_todo_list_path(@user) %>
 
-<div id="footer-log-out" class="links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
+<div id="footer-log-out" class="links">
+  <div class="list"><%= link_to "New list", new_user_todo_list_path(@user) %></div>
+  <div class="logout"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
+</div>

@@ -1,8 +1,13 @@
 
 @import "bootstrap";
 
+
+// Variables //
+
 $white_opaque: rgba(250, 250, 250, .3);
 $dark: #1F7972;
+
+// Global Styles //
 
 * {
 	box-sizing: border-box;
@@ -19,7 +24,7 @@ body {
 	font-size: 2em;
 	color: white;
 	font-weight: 100;
-  margin-top: 5rem;
+  margin-top: 3rem;
 	opacity: 0.5;
 }
 
@@ -34,6 +39,29 @@ body {
 
 .login {
   text-align: center;
+}
+
+.container {
+	background: $white_opaque;
+  width: 65%;
+	margin: 3em auto 0 auto;
+	border-radius: 7px;
+	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
+	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+	padding: 1em 0;
+	h1,h2 {
+		text-align: center;
+		color: #FFFFFF;
+	}
+}
+
+.wrapper {
+  margin: 3rem auto;
+  padding-top: 1rem;
+
+	.container {
+		padding: 2rem;
+	}
 }
 
 #notice-wrapper {
@@ -63,6 +91,17 @@ body {
 
 #footer-log-out {
   text-align: right;
+	padding-top: 2rem;
+	margin: 0 2rem;
+	a {
+		font-size: 1.5rem;
+	}
+	.list {
+		float:left;
+	}
+	.logout {
+		float:right;
+	}
 }
 
 .links {
@@ -70,7 +109,7 @@ body {
   text-decoration: none;
 	margin: 1.5em auto 0 auto;
 	text-align: center;
-	font-size: 0.8em;
+	font-size: 1.2rem;
 	color: white;
 	a {
 		color: white;
@@ -83,6 +122,7 @@ body {
   font-size: 2.5rem;
   text-transform: uppercase;
   color: white;
+	padding-bottom: 2rem;
   margin: 0;
 	a {
 		text-decoration: none;
@@ -114,7 +154,7 @@ body {
 	display: block;
 	margin: 1.5em auto 0 auto;
 	text-align: center;
-	font-size: 0.8em;
+	font-size: 1.2em;
 	color: #FFFFFF;
 	a {
 		color: #FFFFFF;
@@ -123,6 +163,10 @@ body {
 
 .forms {
 	padding: 0 5%;
+	h1,h2 {
+		color: #FFFFFF;
+		text-align: center;
+	}
 }
 
 #todo_items_wrapper {
@@ -145,6 +189,7 @@ body {
 				padding: 1em;
 				color: #FFFFFF;
 				font-weight: 100;
+				font-size: 1.3rem;
 			}
 		}
 		.trash {
@@ -176,20 +221,6 @@ body {
 			border-radius: 4px;
 			padding: 1em 2em;
 		}
-		input[type="submit"] {
-			background: rgba(250,250,250,.4);
-			outline: none;
-			border: none;
-			height: 40px;
-			border-radius: 4px;
-			width: 25%;
-			display: inline-block;
-			transition: all .4s ease-in-out;
-			cursor: pointer;
-			&:hover {
-				background: #FFFFFF;
-			}
-		}
 		::-webkit-input-placeholder { color: #FFFFFF; }
 	}
 }
@@ -204,7 +235,19 @@ input[type="text"], textarea {
     height: 40px;
     border-radius: 4px;
     padding: 1em 2em;
-}
+	}
+
+		input[type="email"], textarea {
+		    width: 100%;
+		    margin: .5em 2% 1em 0;
+		    display: inline-block;
+		    outline: none;
+		    background: rgba(250, 250, 250, 0.4);
+		    border: none;
+		    height: 40px;
+		    border-radius: 4px;
+		    padding: 1em 2em;
+		}
 
 input[type="password"], textarea {
     width: 100%;
@@ -219,37 +262,23 @@ input[type="password"], textarea {
 }
 
 input[type="submit"] {
-    background: white;
-    outline: none;
-    border: none;
-    height: 40px;
-    border-radius: 4px;
-    width: 25%;
-    display: inline-block;
-    transition: all .4s ease-in-out;
-    cursor: pointer;
-    color: #0275d8;
+	background: rgba(250,250,250,.4);
+	outline: none;
+	border: none;
+	height: 40px;
+	border-radius: 4px;
+	width: 25%;
+	display: inline-block;
+	transition: all .4s ease-in-out;
+	color: #007bff;
+	cursor: pointer;
+	&:hover {
+		background: #FFFFFF;
+	}
 }
 
 textarea {
 	height: 200px;
-}
-.container {
-	background: $white_opaque;
-  width: 65%;
-	margin: 3em auto 0 auto;
-	border-radius: 7px;
-	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
-	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
-	padding: 1em 0;
-}
-
-.wrapper {
-  margin: 3rem auto;
-  padding-top: 1rem;
-	.container {
-		padding: 2rem;
-	}
 }
 
 .index_row {
@@ -261,10 +290,18 @@ textarea {
 }
 
 #todo_items_wrapper {
+	padding-left: 2rem;
 	.row .todo_item p {
     margin: 0 auto;
     padding: 1em;
     color: #FFFFFF;
     font-weight: 100;
+	}
+	.row i {
+    color: white;
+    transition: all .4s ease-in-out;
+		&:hover {
+				color: #007bff;
+			}
 	}
 }

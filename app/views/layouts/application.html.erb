@@ -10,6 +10,7 @@
 </head>
 <body>
   <div class="container">
+
     <% if notice %>
       <div id="notice-wrapper">
         <p class="notice"><%= notice %></p>
@@ -27,14 +28,14 @@
     </div>
 
     <div class="wrapper">
-        <%= yield %>
+      <%= yield %>
     </div>
+  </div>
 
   <script>
     blocmetrics.report("test");
   </script>
 
-</div>
 
 </body>
 </html>
