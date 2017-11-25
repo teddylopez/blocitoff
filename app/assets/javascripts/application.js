@@ -21,7 +21,7 @@ $(document).ready(function(){
     $('#notice-wrapper').fadeOut("slow", function() {
       $(this).remove();
     })
-  }, 1000);
+  }, 2500);
 });
 
 var blocmetrics = {};
