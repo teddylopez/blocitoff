@@ -2,10 +2,15 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable
 
   has_many :todo_lists, dependent: :destroy
   has_many :items, dependent: :destroy
+
+  before_create :confirmation_required
+
+  # note that this include statement comes AFTER the devise block above
+  #include DeviseTokenAuth::Concerns::User
 
   def login=(login)
     @login = login
@@ -23,6 +28,12 @@ class User < ActiveRecord::Base
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
         where(conditions.to_hash).first
     end
+  end
+
+  private
+
+  def confirmation_required?
+    false
   end
 
 end

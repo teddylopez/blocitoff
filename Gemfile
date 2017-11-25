@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'devise_token_auth'
 gem 'bootstrap'
 gem 'bootstrap-sass', '3.2.0.2'
 gem 'faker'
