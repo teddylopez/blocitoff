@@ -15,6 +15,7 @@ gem 'devise_token_auth'
 gem 'bootstrap'
 gem 'bootstrap-sass', '3.2.0.2'
 gem 'faker'
+gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 
 group :development, :test do
   gem 'byebug'
