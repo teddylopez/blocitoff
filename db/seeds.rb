@@ -5,7 +5,7 @@ new_user = User.create!(
     email:      'user@blocitoff.com',
     password:   'password'
     )
-new_user.skip_confirmation!
+#new_user.skip_confirmation!
 new_user.save!
 
 # Create test lists
