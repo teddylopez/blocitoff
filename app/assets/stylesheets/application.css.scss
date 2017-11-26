@@ -280,6 +280,9 @@ input[type="submit"] {
 .index_row {
 	padding: 2em;
 	border-bottom: 1px solid rgba(250,250,250, .3);
+	p {
+		font-weight: 300;
+	}
 	.todo_list_sub_title {
 		margin-bottom: 0;
 	}
