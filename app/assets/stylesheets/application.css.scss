@@ -42,7 +42,7 @@ $dark: #1F7972;
 	text-align: center;
 	font-size: 2em;
 	color: white;
-	font-weight: 100;
+	font-weight: 300;
   margin-top: 3rem;
 	opacity: 0.5;
 }
@@ -65,37 +65,36 @@ textarea {
 
 input[type="text"], textarea {
   width: 100%;
-	height: 3rem;
+	height: auto;
   margin: .5em 2% 1em 0;
   display: inline-block;
   outline: none;
   background: rgba(250, 250, 250, 0.4);
   border: none;
-  height: 40px;
   border-radius: 4px;
   padding: 1em 2em;
 }
 
 input[type="email"], textarea {
 	width: 100%;
+	height: auto;
 	margin: .5em 2% 1em 0;
 	display: inline-block;
 	outline: none;
 	background: rgba(250, 250, 250, 0.4);
 	border: none;
-	height: 40px;
 	border-radius: 4px;
 	padding: 1em 2em;
 }
 
 input[type="password"], textarea {
   width: 100%;
+	height: auto;
   margin: .5em 2% 1em 0;
   display: inline-block;
   outline: none;
   background: rgba(250, 250, 250, 0.4);
   border: none;
-  height: 40px;
   border-radius: 4px;
   padding: 1em 2em;
 }
@@ -203,7 +202,7 @@ input[type="submit"] {
 	text-align: center;
 	font-size: 1.3rem;
 	color: #FFFFFF;
-	font-weight: 100;
+	font-weight: 300;
 }
 
 .index_row {
@@ -251,7 +250,7 @@ input[type="submit"] {
 			p {
 				margin: 0;
 				color: #FFFFFF;
-				font-weight: 100;
+				font-weight: 300;
 				font-size: 1.3rem;
 			}
 		}
