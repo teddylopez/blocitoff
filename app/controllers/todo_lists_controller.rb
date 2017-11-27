@@ -10,7 +10,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists/1.json
   def show
     @user = current_user
-    @todo_list = TodoList.find(params[:id])
+    @todo_list = TodoList.friendly.find(params[:id])
   end
 
   # GET /todo_lists/new
@@ -22,7 +22,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists/1/edit
   def edit
     @user = current_user
-    @todo_list = TodoList.find(params[:id])
+    @todo_list = TodoList.friendly.find(params[:id])
   end
 
   # POST /todo_lists
@@ -45,7 +45,7 @@ class TodoListsController < ApplicationController
   # PATCH/PUT /todo_lists/1.json
   def update
     @user = current_user
-    @todo_list = TodoList.find(params[:id])
+    @todo_list = TodoList.friendly.find(params[:id])
     @todo_list.assign_attributes(todo_list_params)
 
     if @todo_list.save
@@ -61,7 +61,7 @@ class TodoListsController < ApplicationController
   # DELETE /todo_lists/1.json
   def destroy
     @user = current_user
-    @todo_list = TodoList.find(params[:id])
+    @todo_list = TodoList.friendly.find(params[:id])
     if @todo_list.destroy
       flash[:success] = "List deleted."
     else
@@ -73,11 +73,11 @@ class TodoListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
-      @todo_list = TodoList.find(params[:id])
+      @todo_list = TodoList.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description, :user_id)
+      params.require(:todo_list).permit(:title, :description, :user_id, :slug)
     end
 end
