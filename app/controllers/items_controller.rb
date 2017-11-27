@@ -27,12 +27,12 @@
 
   def set_todo_list
     @user = current_user
-    @todo_list = TodoList.find(params[:todo_list_id])
+    @todo_list = TodoList.friendly.find(params[:todo_list_id])
   end
 
   def set_todo_item
     @user = current_user
-    @todo_list = TodoList.find(params[:todo_list_id])
+    @todo_list = TodoList.friendly.find(params[:todo_list_id])
     @todo_item = @todo_list.items.find(params[:id])
   end
 
