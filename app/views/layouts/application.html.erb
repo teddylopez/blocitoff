@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blocitoff</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
+  <head>
+    <title>Blocitoff</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <% if notice %>
+        <div id="notice-wrapper">
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% elsif alert %>
+        <div id="notice-wrapper">
+          <p class="alert"><%= alert %></p>
+        </div>
+      <%end %>
 
-    <% if notice %>
-      <div id="notice-wrapper">
-        <p class="notice"><%= notice %></p>
+      <div class="user-info links">
+        <% if current_user %>
+          <p id='user'><%= current_user.username %></p>
+        <% end %>
       </div>
-    <% elsif alert %>
-      <div id="notice-wrapper">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <%end %>
 
-    <div class="user-info links">
-      <% if current_user %>
-        <p id='user'><%= current_user.username %></p>
-      <% end %>
+      <div class="wrapper">
+        <%= yield %>
+      </div>
     </div>
 
-    <div class="wrapper">
-      <%= yield %>
-    </div>
-  </div>
+    <script>
+      blocmetrics.report("test");
+    </script>
 
-  <script>
-    blocmetrics.report("test");
-  </script>
-
-
-</body>
+  </body>
 </html>

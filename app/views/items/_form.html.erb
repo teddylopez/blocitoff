@@ -2,6 +2,7 @@
   <% if @todo_list.items.new.errors.any? %>
     <h4>Please make sure your item has a unique name.</h4>
   <% end %>
+
   <%= f.text_field :name, placeholder: "What to do?" %>
   <%= f.submit %>
 <% end %>
