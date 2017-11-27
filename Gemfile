@@ -18,7 +18,6 @@ gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 
 group :production, :staging do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 group :development do
