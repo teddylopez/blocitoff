@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sendgrid', '~> 1.2', '>= 1.2.4'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'rails_12factor', '~> 0.0.3'
 
 group :production, :staging do
   gem 'pg'
