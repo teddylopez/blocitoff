@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show] do
-    resources :todo_lists, :path => "lists", only: [:create, :destroy, :show, :edit, :new] do
+    resources :todo_lists, :path => "lists", only: [:create, :destroy, :show, :edit, :update, :new] do
       resources :items, only: [:create, :destroy] do
         member do
           patch :complete
